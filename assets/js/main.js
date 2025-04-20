@@ -245,8 +245,6 @@
       }
     })
   }
-  window.addEventListener('load', navmenuScrollspy);
-  document.addEventListener('scroll', navmenuScrollspy);
   document.addEventListener('DOMContentLoaded', function () {
     const banner = document.getElementById('cookie-consent-banner');
     const acceptBtn = document.getElementById('accept-cookies');
@@ -257,6 +255,7 @@
       const value = `; ${document.cookie}`;
       const parts = value.split(`; ${name}=`);
       if (parts.length === 2) return parts.pop().split(';').shift();
+      return null; // Ensure null is returned if the cookie is not found
     }
   
     // Function to set a cookie
@@ -267,7 +266,7 @@
   
     // Check if consent has already been given
     if (!getCookie('cookie_consent')) {
-      banner.style.display = 'flex';
+      banner.style.display = 'block'; // Change to 'block' to avoid any conflicts with CSS
     }
   
     // Handle Accept button click

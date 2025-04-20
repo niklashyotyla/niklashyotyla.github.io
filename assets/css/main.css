@@ -1658,3 +1658,43 @@ section,
     border-radius: 4px;
     font-size: 14px;
   }
+
+  .privacy-policy h2 {
+    font-size: 28px;
+    margin-top: 40px;
+    font-weight: 700;
+    color: var(--heading-color);
+  }
+  
+  .privacy-policy h3 {
+    font-size: 22px;
+    margin-top: 30px;
+    font-weight: 600;
+    color: var(--heading-color);
+  }
+  
+  .privacy-policy h4 {
+    font-size: 18px;
+    margin-top: 20px;
+    font-weight: 500;
+    color: var(--heading-color);
+  }
+  
+  .privacy-policy p,
+  .privacy-policy ul,
+  .privacy-policy li {
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--default-color);
+  }
+  
+  .privacy-policy ul {
+    padding-left: 20px;
+    list-style: disc;
+  }
+  
+  .privacy-policy a {
+    color: var(--accent-color);
+    text-decoration: underline;
+  }
+  

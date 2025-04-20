@@ -247,5 +247,41 @@
   }
   window.addEventListener('load', navmenuScrollspy);
   document.addEventListener('scroll', navmenuScrollspy);
-
+  document.addEventListener('DOMContentLoaded', function () {
+    const banner = document.getElementById('cookie-consent-banner');
+    const acceptBtn = document.getElementById('accept-cookies');
+    const rejectBtn = document.getElementById('reject-cookies');
+  
+    // Function to get a cookie by name
+    function getCookie(name) {
+      const value = `; ${document.cookie}`;
+      const parts = value.split(`; ${name}=`);
+      if (parts.length === 2) return parts.pop().split(';').shift();
+    }
+  
+    // Function to set a cookie
+    function setCookie(name, value, days) {
+      const expires = new Date(Date.now() + days * 864e5).toUTCString();
+      document.cookie = `${name}=${value}; expires=${expires}; path=/`;
+    }
+  
+    // Check if consent has already been given
+    if (!getCookie('cookie_consent')) {
+      banner.style.display = 'flex';
+    }
+  
+    // Handle Accept button click
+    acceptBtn.addEventListener('click', function () {
+      setCookie('cookie_consent', 'accepted', 365);
+      banner.style.display = 'none';
+      // Initialize non-essential cookies or scripts here
+    });
+  
+    // Handle Reject button click
+    rejectBtn.addEventListener('click', function () {
+      setCookie('cookie_consent', 'rejected', 365);
+      banner.style.display = 'none';
+      // Do not initialize non-essential cookies or scripts
+    });
+  });
 })();
